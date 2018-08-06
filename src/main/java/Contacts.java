@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Contacts {
-    private static final String SAMPLE_CSV_FILE_PATH = "/Users/oleksandr_senkevych/Documents/contacts.csv";
+    private static final String SAMPLE_CSV_FILE_PATH = "/Users/oleksandr_senkevych/Downloads/CSVParser/src/main/resources/contacts.csv";
     private String name;
 
 //    public Contacts(String name) {
@@ -60,7 +60,10 @@ public class Contacts {
 //                System.out.println("Name : " + record[0]);
                 for (String hz : record){
                         if (hz.contains(cache)){
+//                            for (int i =0; i< hz.length();i++){
+//                            }
                             listOfCards.add(record);
+
                         }
                 }
 
