@@ -7,19 +7,18 @@ public class BasicCSVReader {
 
         Contacts contacts = new Contacts();
 
-        System.out.println("-- Enter name to find contacts card (Example: Андрей)");
-
+        System.out.println("-- Enter searchByText to find contacts card (Example: Андрей)");
         Scanner scanner = new Scanner(System.in);
         String inputCache = scanner.nextLine();
 
-        for (String[] contactCards : contacts.name(inputCache)) {
+        for (String[] contactCards : contacts.searchByText(inputCache)) {
             for (String contactFields : contactCards) {
                 if (!contactFields.equals("")) {
                     System.out.println(contactFields);
                 }
             }  System.out.println("_____ ______ ______ ____");
         }
-        if (contacts.name(inputCache).isEmpty()){
+        if (contacts.searchByText(inputCache).isEmpty()){
             System.out.println("----- try it once more ");
         }
     }
