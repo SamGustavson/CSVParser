@@ -1,5 +1,4 @@
 import au.com.bytecode.opencsv.CSVReader;
-
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
@@ -9,7 +8,6 @@ import java.util.List;
 
 public class Contacts {
     private static final String SAMPLE_CSV_FILE_PATH = "/Users/oleksandr_senkevych/Downloads/CSVParser/src/main/resources/contacts.csv";
-    private String name;
 
 //    public Contacts(String name) {
 //        this.name = name;
@@ -37,38 +35,23 @@ public class Contacts {
 //
 //            }
 //        }
-//
 //    }
 //}
 
     public List<String[]> name(String cache) throws IOException {
-//        Reader reader = Files.newBufferedReader(Paths.get(SAMPLE_CSV_FILE_PATH));
-//        CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT
-//                .withHeader("Name", "Email", "Phone", "Country")
-//                .withIgnoreHeaderCase()
-//                .withTrim());
-
         Reader reader = Files.newBufferedReader(Paths.get(SAMPLE_CSV_FILE_PATH));
         CSVReader csvReader = new CSVReader(reader);
 
         List<String[]> records = csvReader.readAll();
-//        for (String[] record : records) {
-//            System.out.println("Name : " + record[0]);
             List<String[]> listOfCards  = new ArrayList<String[]>();
 
             for (String[] record : records) {
-//                System.out.println("Name : " + record[0]);
-                for (String hz : record){
-                        if (hz.contains(cache)){
-//                            for (int i =0; i< hz.length();i++){
-//                            }
+                for (String findedCards : record){
+                        if (findedCards.contains(cache)){
                             listOfCards.add(record);
-
                         }
                 }
-
         }
         return listOfCards;
     }
-
 }
